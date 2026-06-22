@@ -1,0 +1,205 @@
+═══════════════════════════════════════════════════════════════════════════════
+  GUÍA RÁPIDA: Compilar Guardias Galephar en Windows
+═══════════════════════════════════════════════════════════════════════════════
+
+PASO 1: INSTALAR NODE.JS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Ve a: https://nodejs.org/
+2. Descarga la versión LTS (recomendada)
+3. Ejecuta el instalador y sigue los pasos
+4. En la instalación, ASEGÚRATE DE MARCAR:
+   ✓ Add to PATH
+   ✓ Automatically install necessary tools
+5. Reinicia tu computadora
+
+VERIFICA LA INSTALACIÓN:
+→ Abre PowerShell/CMD y escribe: node --version
+→ Deberías ver algo como: v18.0.0 o superior
+
+
+PASO 2: DESCARGAR Y PREPARAR LOS ARCHIVOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Extrae los archivos enviados a una carpeta, ejemplo:
+   C:\Users\TuUsuario\Desktop\guardias-galephar
+
+2. Los archivos deben estar así:
+   guardias-galephar/
+   ├── public/
+   │   ├── main.js
+   │   ├── preload.js
+   │   ├── index.html
+   ├── package.json
+   └── README.md
+
+
+PASO 3: ABRIR TERMINAL EN LA CARPETA DEL PROYECTO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+OPCIÓN A: Desde el Explorador de Archivos
+→ Ve a la carpeta guardias-galephar
+→ Haz CLIC DERECHO en la carpeta
+→ Elige "Abrir PowerShell aquí" o "Abrir terminal aquí"
+
+OPCIÓN B: Desde PowerShell
+→ Abre PowerShell
+→ Escribe: cd C:\Users\TuUsuario\Desktop\guardias-galephar
+→ Presiona ENTER
+
+
+PASO 4: INSTALAR DEPENDENCIAS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+En la terminal del PowerShell, escribe:
+
+    npm install
+
+Este paso:
+✓ Descarga Electron
+✓ Descarga todas las dependencias necesarias
+⏱ ESPERA 2-5 MINUTOS (depende de tu velocidad de internet)
+✓ Verás mucho texto en la pantalla - esto es normal
+
+CUANDO TERMINA:
+→ Volverá a aparecer el símbolo de prompt (>)
+→ No habrá mensajes de error en rojo
+
+
+PASO 5: PROBAR LA APLICACIÓN (OPCIONAL)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Escribe en la terminal:
+
+    npm start
+
+Esto abrirá la aplicación en modo prueba.
+Verifica que todo funciona correctamente.
+Cierra la ventana cuando termines.
+
+
+PASO 6: COMPILAR EL INSTALADOR (⭐ PASO IMPORTANTE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Escribe en la terminal:
+
+    npm run build-win
+
+Este paso:
+✓ Crea la carpeta "dist"
+✓ Genera los instaladores ejecutables
+✓ Puede tardar 1-3 minutos
+✓ Verás muchos mensajes - es normal
+
+AL TERMINAR:
+→ Se creará la carpeta: guardias-galephar\dist\
+→ Dentro encontrarás los archivos:
+   • guardias-galephar-1.0.0-setup.exe (Instalador)
+   • guardias-galephar-1.0.0-portable.exe (Versión portátil)
+
+
+PASO 7: INSTALAR LA APLICACIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+En Windows Explorer, ve a:
+→ C:\Users\TuUsuario\Desktop\guardias-galephar\dist\
+
+Tienes dos opciones:
+
+OPCIÓN 1: Instalador (Recomendado)
+→ Haz doble clic en "guardias-galephar-1.0.0-setup.exe"
+→ Sigue el asistente de instalación
+→ La aplicación se instalará en Programas
+→ Tendrás acceso directo en el Menú Inicio
+
+OPCIÓN 2: Versión Portátil (Sin instalación)
+→ Copia "guardias-galephar-1.0.0-portable.exe" a donde quieras
+→ Ejecútalo desde cualquier lugar
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  ERRORES COMUNES Y SOLUCIONES
+═══════════════════════════════════════════════════════════════════════════════
+
+❌ Error: "npm no se reconoce como comando"
+   → Verifica que instalaste Node.js
+   → Reinicia PowerShell después de instalar Node.js
+
+❌ Error: "Cannot find module..."
+   → Ejecuta: npm install
+   → Espera a que termine completamente
+
+❌ Error: "Cannot find executable..."
+   → Revisa que los archivos estén en las carpetas correctas
+   → Verifica que exista la carpeta "public" con los 3 archivos
+
+❌ El instalador no se genera
+   → Cierra todas las instancias de la aplicación
+   → Intenta nuevamente con: npm run build-win
+   → Si persiste, elimina la carpeta "node_modules" y repite npm install
+
+❌ La aplicación se abre en blanco
+   → Presiona F12 para abrir herramientas de desarrollador
+   → Busca errores en la consola
+   → Verifica que public/index.html existe
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  ARCHIVOS FINALES GENERADOS
+═══════════════════════════════════════════════════════════════════════════════
+
+Después de compilar, en la carpeta dist/ tendrás:
+
+📦 guardias-galephar-1.0.0-setup.exe
+   → Tamaño: ~150 MB
+   → Instalador con asistente
+   → Crea accesos directos automáticamente
+   → Se puede desinstalar desde Panel de Control
+
+📦 guardias-galephar-1.0.0-portable.exe
+   → Tamaño: ~140 MB
+   → No requiere instalación
+   → Se ejecuta desde cualquier lugar
+   → Portable a USB o nube
+
+📄 builder-effective-config.yaml
+   → Archivo de configuración (ignora este)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  SIGUIENTE: CÓMO USAR LA APLICACIÓN
+═══════════════════════════════════════════════════════════════════════════════
+
+Una vez instalada, la aplicación:
+
+1. Se abre normalmente como cualquier programa Windows
+2. Todos los datos se guardan automáticamente en tu computadora
+3. No necesita conexión a internet
+4. Puedes usar todos los temas visuales disponibles
+5. Puedes generar PDFs de los reportes
+
+Para acceder:
+→ Busca "Guardias Galephar" en el Menú Inicio
+   O
+→ Haz doble clic en el acceso directo del escritorio
+
+
+═══════════════════════════════════════════════════════════════════════════════
+¿NECESITAS AYUDA?
+═══════════════════════════════════════════════════════════════════════════════
+
+Sigue estos pasos si hay problemas:
+
+1. Verifica que Node.js está instalado: node --version
+2. Verifica que npm está instalado: npm --version
+3. Limpia e instala de nuevo:
+   - Elimina la carpeta "node_modules"
+   - Ejecuta: npm install
+   - Luego: npm run build-win
+
+4. Si aún no funciona, intenta instalar manualmente:
+   - npm install electron --save-dev
+   - npm install electron-builder --save-dev
+   - npm run build-win
+
+═══════════════════════════════════════════════════════════════════════════════

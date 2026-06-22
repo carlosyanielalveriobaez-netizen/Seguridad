@@ -1,0 +1,64 @@
+{
+  "name": "guardias-galephar",
+  "version": "1.0.0",
+  "description": "Sistema de Gestión de Guardias de Seguridad Galephar",
+  "main": "public/main.js",
+  "homepage": "./",
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build": "electron-builder",
+    "build-win": "electron-builder --win --publish never",
+    "build-installers": "electron-builder --win --mac --linux",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "electron-is-dev": "^1.2.0",
+    "electron-window-state": "^5.0.3"
+  },
+  "devDependencies": {
+    "electron": "^latest",
+    "electron-builder": "^latest"
+  },
+  "build": {
+    "appId": "com.galephar.seguridad",
+    "productName": "Guardias Galephar",
+    "files": [
+      "public/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/logo.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Guardias Galephar"
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-portable.${ext}"
+    }
+  }
+}

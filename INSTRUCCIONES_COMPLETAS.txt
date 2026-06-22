@@ -1,0 +1,508 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║        GUARDIAS GALEPHAR - INSTRUCCIONES COMPLETAS PARA WINDOWS              ║
+║                                                                               ║
+║        Sistema de Gestión de Seguridad - Versión 1.0.0                       ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+
+📋 TABLA DE CONTENIDOS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Requisitos Previos
+2. Instalación de Node.js
+3. Preparación del Proyecto
+4. Instalación de Dependencias
+5. Prueba de la Aplicación
+6. Compilación del Instalador
+7. Instalación en Windows
+8. Cómo Usar la Aplicación
+9. Solución de Problemas
+10. Preguntas Frecuentes
+
+
+═══════════════════════════════════════════════════════════════════════════════
+1️⃣  REQUISITOS PREVIOS
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Sistema Operativo: Windows 7, 8, 10 o 11
+✓ Espacio en Disco: Mínimo 500 MB libres
+✓ Conexión a Internet: Para descargar dependencias (durante instalación)
+✓ Permisos: Acceso de administrador en algunas partes
+
+NO NECESITAS:
+✗ Bases de datos externas
+✗ Servidores web
+✗ Conexión permanente a internet
+
+
+═══════════════════════════════════════════════════════════════════════════════
+2️⃣  INSTALACIÓN DE NODE.JS - PASO A PASO
+═══════════════════════════════════════════════════════════════════════════════
+
+📥 DESCARGA:
+────────────
+
+1. Abre tu navegador (Chrome, Edge, Firefox)
+2. Ve a: https://nodejs.org/
+3. Haz clic en el botón verde "LTS" (recomendado)
+   - LTS = Long Term Support (Soporte a Largo Plazo)
+   - Es la versión más estable
+4. Se descargará el instalador
+
+💾 INSTALACIÓN:
+────────────────
+
+1. Abre el archivo descargado (node-v18.xxx-x64.msi)
+2. Verás una ventana de instalación
+3. Haz clic en "Next" (Siguiente)
+4. Lee y acepta los términos de licencia
+   - Marca la casilla "I accept"
+   - Haz clic en "Next"
+5. Elige la carpeta de instalación (por defecto está bien)
+   - Haz clic en "Next"
+6. Selecciona "Custom Setup"
+7. IMPORTANTE: Asegúrate que está marcado:
+   ☑ Node.js runtime
+   ☑ npm package manager
+   ☑ Add to PATH ← MUY IMPORTANTE
+   ☑ Automatically install necessary tools
+8. Haz clic en "Next" y luego "Install"
+9. Espera a que termine (puede tardar 2-3 minutos)
+10. Haz clic en "Finish"
+11. REINICIA TU COMPUTADORA
+
+✅ VERIFICA LA INSTALACIÓN:
+─────────────────────────────
+
+1. Presiona las teclas: Windows + R
+2. Escribe: cmd
+3. Presiona Enter
+4. En la ventana negra que aparece, escribe:
+   
+   node --version
+
+5. Deberías ver algo como: v18.x.x (versión instalada)
+6. Ahora escribe:
+   
+   npm --version
+
+7. Deberías ver algo como: 9.x.x
+
+Si ves números de versión ✓ significa que está correctamente instalado
+
+
+═══════════════════════════════════════════════════════════════════════════════
+3️⃣  PREPARACIÓN DEL PROYECTO
+═══════════════════════════════════════════════════════════════════════════════
+
+📂 ESTRUCTURA DE ARCHIVOS:
+──────────────────────────
+
+Deberías tener una carpeta llamada "guardias-galephar" con esta estructura:
+
+guardias-galephar/
+├── public/
+│   ├── main.js ..................... Código principal de Electron
+│   ├── preload.js .................. Script de seguridad
+│   └── index.html .................. La aplicación web
+├── package.json .................... Configuración del proyecto
+├── README.md ....................... Documentación
+├── GUIA_RAPIDA.txt ................. Guía rápida
+├── INSTRUCCIONES_COMPLETAS.txt ..... Este archivo
+├── instalar.bat .................... Script de instalación automática
+├── ejecutar.bat .................... Script para ejecutar
+├── compilar.bat .................... Script para compilar
+└── (Otros archivos de configuración)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+4️⃣  INSTALACIÓN DE DEPENDENCIAS
+═══════════════════════════════════════════════════════════════════════════════
+
+🎯 FORMA FÁCIL (RECOMENDADA):
+────────────────────────────
+
+1. Ve a la carpeta "guardias-galephar"
+2. Haz clic derecho en la carpeta vacía
+3. Elige "Abrir terminal aquí" o "Abrir PowerShell aquí"
+4. En la terminal, verás algo como:
+   
+   PS C:\Users\TuNombre\Desktop\guardias-galephar>
+
+5. Escribe este comando y presiona Enter:
+   
+   npm install
+
+6. ESPERA - Verás mucho texto en la pantalla
+   - Es normal, no cierres la terminal
+   - Puede tomar de 2 a 5 minutos
+   - Depende de tu velocidad de internet
+
+7. Cuando termine, verás nuevamente el prompt
+
+✅ LISTO - Las dependencias están instaladas
+
+
+🔧 FORMA MANUAL (SI LA ANTERIOR NO FUNCIONA):
+──────────────────────────────────────────────
+
+1. Haz doble clic en "instalar.bat"
+2. Se abrirá una ventana negra
+3. Presiona cualquier tecla cuando termine
+4. ¡Listo!
+
+
+═══════════════════════════════════════════════════════════════════════════════
+5️⃣  PRUEBA DE LA APLICACIÓN
+═══════════════════════════════════════════════════════════════════════════════
+
+Antes de compilar el instalador, prueba que todo funciona correctamente.
+
+🎯 OPCIÓN 1 - FORMA FÁCIL:
+──────────────────────────
+
+1. Haz doble clic en "ejecutar.bat"
+2. Espera unos segundos
+3. Se abrirá la aplicación
+4. Verifica que funciona correctamente
+5. Cierra la aplicación cuando termines
+6. La ventana se cerrará automáticamente
+
+
+🎯 OPCIÓN 2 - DESDE TERMINAL:
+──────────────────────────────
+
+1. Abre PowerShell en la carpeta del proyecto
+2. Escribe:
+   
+   npm start
+
+3. Presiona Enter
+4. Se abrirá la aplicación
+5. Cierra la aplicación cuando termines
+
+
+═══════════════════════════════════════════════════════════════════════════════
+6️⃣  COMPILACIÓN DEL INSTALADOR
+═══════════════════════════════════════════════════════════════════════════════
+
+Este es el paso más importante. Aquí es donde se crea el instalador ejecutable.
+
+⚠️  IMPORTANTE:
+─────────────
+
+- Cierra la aplicación si la tienes abierta
+- Asegúrate de que no hay instancias abiertas de Electron
+- Verifica que tienes al menos 200 MB libres en disco
+
+
+🎯 OPCIÓN 1 - FORMA FÁCIL (RECOMENDADA):
+──────────────────────────────────────────
+
+1. Haz doble clic en "compilar.bat"
+2. Se abrirá una ventana negra
+3. Verás: "⚙️  Compilando la aplicación para Windows..."
+4. ESPERA - Puede tomar de 1 a 3 minutos
+5. Cuando termine, verás un mensaje de éxito
+6. Presiona cualquier tecla para cerrar
+
+
+🎯 OPCIÓN 2 - DESDE TERMINAL:
+──────────────────────────────
+
+1. Abre PowerShell en la carpeta del proyecto
+2. Escribe:
+   
+   npm run build-win
+
+3. Presiona Enter
+4. ESPERA - Puede tomar de 1 a 3 minutos
+5. Cuando termina, volverá al prompt
+
+
+✅ VERIFICACIÓN:
+────────────────
+
+1. Abre el Explorador de Archivos
+2. Ve a la carpeta "guardias-galephar"
+3. Deberías ver una carpeta llamada "dist"
+4. Abre "dist"
+5. Dentro encontrarás:
+   
+   ✓ guardias-galephar-1.0.0-setup.exe (≈150 MB)
+   ✓ guardias-galephar-1.0.0-portable.exe (≈140 MB)
+
+Si ves estos archivos ✓ ¡LA COMPILACIÓN FUE EXITOSA!
+
+
+═══════════════════════════════════════════════════════════════════════════════
+7️⃣  INSTALACIÓN EN WINDOWS
+═══════════════════════════════════════════════════════════════════════════════
+
+Ya tienes el instalador. Ahora lo instalaremos.
+
+📦 OPCIÓN A: INSTALADOR ESTÁNDAR (RECOMENDADO)
+──────────────────────────────────────────────
+
+1. Abre la carpeta "dist"
+2. Haz doble clic en "guardias-galephar-1.0.0-setup.exe"
+3. Aparecerá el asistente de instalación
+4. Haz clic en "Next" (Siguiente)
+5. Lee y acepta los términos
+6. Selecciona dónde instalar (por defecto está bien)
+   - Por defecto se instala en: C:\Program Files\
+7. Elige opciones de instalación:
+   ☑ Crear acceso directo en Escritorio
+   ☑ Crear entrada en Menú Inicio
+8. Haz clic en "Install"
+9. ESPERA - La instalación tarda 1-2 minutos
+10. Cuando termine, haz clic en "Finish"
+
+✅ LISTO - La aplicación está instalada en tu computadora
+
+
+📱 OPCIÓN B: VERSIÓN PORTÁTIL (SIN INSTALACIÓN)
+─────────────────────────────────────────────
+
+1. Abre la carpeta "dist"
+2. Copia el archivo "guardias-galephar-1.0.0-portable.exe"
+3. Pégalo en:
+   - Tu Escritorio
+   - Una carpeta en tu PC
+   - Una memoria USB
+   - Cualquier lugar donde quieras
+4. Para ejecutar, solo haz doble clic
+5. No requiere instalación
+
+Ventajas:
+✓ Se ejecuta desde cualquier lugar
+✓ Portable en USB
+✓ No usa espacio de instalación
+
+
+═══════════════════════════════════════════════════════════════════════════════
+8️⃣  CÓMO USAR LA APLICACIÓN
+═══════════════════════════════════════════════════════════════════════════════
+
+🚀 EJECUTAR LA APLICACIÓN:
+───────────────────────────
+
+DESPUÉS DE INSTALAR:
+- Busca "Guardias Galephar" en el Menú Inicio (Windows + S)
+  O
+- Haz doble clic en el acceso directo del escritorio
+
+VERSIÓN PORTÁTIL:
+- Haz doble clic en el .exe directamente
+
+
+📖 FUNCIONALIDADES PRINCIPALES:
+───────────────────────────────
+
+1. 👮 GESTIÓN DE GUARDIAS
+   - Registrar nuevos guardias
+   - Asignar turnos
+   - Ver historial de guardias
+
+2. 🏢 REGISTRO DE INSPECCIONES
+   - Crear inspecciones
+   - Documentar hallazgos
+   - Adjuntar observaciones
+
+3. 🔁 CONTROL DE RONDAS
+   - Programar rondas de seguridad
+   - Definir frecuencia
+   - Ver próximas rondas
+
+4. 🛠️ REGISTRO DE EQUIPOS
+   - Inventario de equipos
+   - Estado de equipos
+   - Observaciones técnicas
+
+5. 📄 GENERACIÓN DE REPORTES
+   - Exportar a PDF
+   - Imprimir registros
+   - Ver historial completo
+
+6. 🎨 TEMAS VISUALES
+   - Modo claro (por defecto)
+   - Modo oscuro
+   - Tema azul
+   - Tema verde
+   - Cambiar entre temas sin perder datos
+
+
+💾 ALMACENAMIENTO DE DATOS:
+────────────────────────────
+
+- Todos los datos se guardan automáticamente
+- Se guardan en tu computadora (no en la nube)
+- NO necesitas conexión a internet para usar la aplicación
+- Los datos persisten entre sesiones
+- Puedes acceder a ellos incluso si cierras la aplicación
+
+
+═══════════════════════════════════════════════════════════════════════════════
+9️⃣  SOLUCIÓN DE PROBLEMAS
+═══════════════════════════════════════════════════════════════════════════════
+
+PROBLEMA 1: "npm no se reconoce como comando"
+─────────────────────────────────────────────
+
+SÍNTOMA:
+→ Al escribir "npm install" aparece un error
+
+CAUSA:
+→ Node.js no está instalado correctamente
+→ O PowerShell/CMD no reconoce la instalación
+
+SOLUCIÓN:
+1. Verifica que instalaste Node.js
+2. Reinicia tu computadora (después de instalar Node.js)
+3. Abre PowerShell como Administrador
+4. Escribe: node --version
+5. Si ves la versión ✓ ahora intenta nuevamente
+
+
+PROBLEMA 2: "Cannot find module 'electron'"
+────────────────────────────────────────────
+
+SÍNTOMA:
+→ Error cuando intentas ejecutar "npm start"
+
+CAUSA:
+→ Las dependencias no se instalaron correctamente
+
+SOLUCIÓN:
+1. Ve a la carpeta "guardias-galephar"
+2. Abre PowerShell aquí
+3. Elimina la carpeta "node_modules":
+   
+   rmdir /s /q node_modules
+
+4. Instala nuevamente:
+   
+   npm install
+
+5. Intenta "npm start" nuevamente
+
+
+PROBLEMA 3: "El instalador no se genera"
+─────────────────────────────────────────
+
+SÍNTOMA:
+→ Al ejecutar "compilar.bat" no aparece la carpeta "dist"
+
+CAUSA:
+→ La aplicación sigue ejecutándose
+→ Falta espacio en disco
+→ Las dependencias no están completas
+
+SOLUCIÓN:
+1. Cierra todas las instancias de la aplicación
+2. Verifica espacio en disco (mínimo 200 MB libres)
+3. Intenta nuevamente:
+   
+   npm run build-win
+
+4. Si persiste:
+   - Elimina la carpeta "dist"
+   - Elimina "node_modules"
+   - Ejecuta "npm install"
+   - Luego "npm run build-win"
+
+
+PROBLEMA 4: "La aplicación se abre en blanco"
+──────────────────────────────────────────────
+
+SÍNTOMA:
+→ La aplicación se ejecuta pero no muestra contenido
+
+CAUSA:
+→ Error en los archivos HTML/JS
+→ Ruta incorrecta
+
+SOLUCIÓN:
+1. Presiona F12 para abrir herramientas de desarrollador
+2. Ve a la pestaña "Console"
+3. Busca mensajes de error en rojo
+4. Verifica que el archivo "public/index.html" existe
+5. Si hay errores, envíalos para soporte
+
+
+PROBLEMA 5: "Acceso denegado durante la instalación"
+─────────────────────────────────────────────────────
+
+SÍNTOMA:
+→ Error de permisos al instalar
+
+SOLUCIÓN:
+1. Abre PowerShell como Administrador
+2. Haz clic derecho en PowerShell
+3. Elige "Ejecutar como administrador"
+4. Ve a la carpeta del proyecto
+5. Intenta nuevamente
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🔟 PREGUNTAS FRECUENTES
+═══════════════════════════════════════════════════════════════════════════════
+
+❓ ¿Necesito internet para usar la aplicación?
+✓ NO. Solo necesitas internet para instalar las dependencias inicialmente.
+  Después funciona completamente sin conexión.
+
+❓ ¿Dónde se guardan mis datos?
+✓ Se guardan localmente en tu computadora:
+  C:\Users\TuUsuario\AppData\Local\guardias-galephar\
+
+❓ ¿Puedo compartir la aplicación compilada?
+✓ SÍ. Puedes compartir los archivos .exe con otros usuarios Windows.
+  Ellos solo necesitan ejecutar el instalador.
+
+❓ ¿Qué pasa si actualizo Windows?
+✓ La aplicación seguirá funcionando sin problemas.
+
+❓ ¿Puedo desinstalar y reinstalar?
+✓ SÍ. Puedes desinstalar desde Panel de Control → Programas sin problemas.
+  Los datos se guardarán si usas la misma carpeta de instalación.
+
+❓ ¿Es seguro el programa?
+✓ SÍ. Es una aplicación local que no se conecta a servidores externos.
+  Los datos son solo tuyos.
+
+❓ ¿Puedo modificar el código?
+✓ SÍ. Los archivos en "public/" son editables. Después debes compilar nuevamente.
+
+❓ ¿Cuánto espacio ocupa?
+✓ Aproximadamente 200 MB en disco una vez instalada.
+
+❓ ¿Funciona en Windows 7?
+✓ SÍ. Funciona desde Windows 7 en adelante.
+
+❓ ¿Puedo usar la versión portátil en USB?
+✓ SÍ. La versión portátil funciona desde cualquier lugar, incluyendo USB.
+
+❓ ¿Cómo actualizo la aplicación?
+✓ Compila nuevamente con los archivos actualizados y genera un nuevo instalador.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎉 ¡FELICIDADES! 🎉
+
+Ya tienes todo listo para compilar tu aplicación de escritorio para Windows.
+
+Sigue los pasos en orden:
+1️⃣  Instala Node.js
+2️⃣  Extrae los archivos del proyecto
+3️⃣  Ejecuta "instalar.bat"
+4️⃣  Ejecuta "ejecutar.bat" para probar
+5️⃣  Ejecuta "compilar.bat" para generar instalador
+6️⃣  Instala desde "dist/guardias-galephar-1.0.0-setup.exe"
+
+¡Disfruta tu nueva aplicación de Guardias Galephar! 🚀
+
+═══════════════════════════════════════════════════════════════════════════════
